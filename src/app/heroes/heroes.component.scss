@@ -1,0 +1,18 @@
+div{
+  background: whitesmoke;
+  text-align: center;
+  vertical-align: middle;
+  height:35px;
+  justify-content: space-evenly;
+}
+ul{
+  display: flex;
+  list-style: none;
+  justify-content: space-evenly;
+}
+li{
+  display: block;
+  float: left;
+  margin-top: 0.5%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

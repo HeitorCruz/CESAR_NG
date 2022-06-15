@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  dadoExterno="Dado em appComponent";
   title = 'Tour of Heroes';
+  cidade = "Barreiras"
+  main = "Main"
 }
