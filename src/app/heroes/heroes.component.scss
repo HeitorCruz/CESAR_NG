@@ -5,6 +5,17 @@ div{
   height:35px;
   justify-content: space-evenly;
 }
+#clientes{
+  margin-top: 5px;
+  height: fit-content;
+}
+#produtos{
+  text-align: center;
+  height: fit-content;
+}
+#quants{
+  height: fit-content;
+}
 ul{
   display: flex;
   list-style: none;
@@ -15,4 +26,8 @@ li{
   float: left;
   margin-top: 0.5%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+table, tr, th, td{
+  border: 1px solid black;
+  margin: auto;
 }

@@ -1,7 +1,27 @@
 <div>
   <ul>
-    <li>Clientes</li>
-    <li>Produtos</li>
-    <li>Vendedores</li>
+    <li (click)="showClientes()">Clientes</li>
+    <li (click)="showProdutos()">Produtos</li>
+    <li (click)="showQuants()">Vendedores</li>
   </ul>
+</div>
+<div id="clientes">
+  <table *ngIf="showingClientes">
+    <tr>
+      <th>Cliente</th>
+      <th>Cidade</th>
+      <th>Quant. Comprada</th>
+    </tr>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente}}</td>
+      <td>Barreiras</td>
+      <td>14</td>
+    </tr>
+  </table>
+</div>
+<div id="produtos" *ngIf="showingProdutos">
+  Registro de Produtos
+</div>
+<div id="quants" *ngIf="showingQuants">
+  Registro de Quantidades
 </div>
