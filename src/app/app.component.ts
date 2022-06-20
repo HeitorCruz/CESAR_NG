@@ -10,4 +10,8 @@ export class AppComponent {
   title = 'Tour of Heroes';
   cidade = "Barreiras"
   main = "Main"
+  showTopSearch=false;
+  topSearch(){
+    this.showTopSearch=!this.showTopSearch;
+  }
 }

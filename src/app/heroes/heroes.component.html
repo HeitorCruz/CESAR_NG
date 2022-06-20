@@ -1,12 +1,17 @@
 <div>
   <ul>
-    <li (click)="showClientes()">Clientes</li>
-    <li (click)="showProdutos()">Produtos</li>
-    <li (click)="showQuants()">Vendedores</li>
+    <li (click)="showClientes()"><a href="#">Clientes</a></li>
+    <li (click)="showProdutos()"><a href="#">Produtos</a></li>
+    <li (click)="showQuants()"><a href="#">Vendedores</a></li>
   </ul>
 </div>
-<div id="clientes">
-  <table *ngIf="showingClientes">
+<div id="clientes" *ngIf="showingClientes">
+  <div>
+    <label>Escolha um Cliente: </label>
+    <input type="text" [(ngModel)]="pesquisa">
+    <span>{{vendedorSel[0].vendedor}}</span>
+  </div>
+  <table>
     <tr>
       <th>Cliente</th>
       <th>Cidade</th>
@@ -20,8 +25,30 @@
   </table>
 </div>
 <div id="produtos" *ngIf="showingProdutos">
-  Registro de Produtos
+  <table>
+    <tr>
+      <th>Produto</th>
+      <th>Preço</th>
+      <th>Quantidade</th>
+    </tr>
+    <tr *ngFor="let produto of produtos">
+      <td>{{produto.produto}}</td>
+      <td>{{produto.preco}}</td>
+      <td>{{produto.quant}}</td>
+    </tr>
+  </table>
 </div>
 <div id="quants" *ngIf="showingQuants">
-  Registro de Quantidades
+  <table>
+    <tr>
+      <th>Vendedor</th>
+      <th>Quantidade de Vendas</th>
+    </tr>
+    <tr *ngFor="let vendedor of vendedores">
+      <td>{{vendedor.vendedor}}</td>
+      <td>{{vendedor.vendas}}</td>
+    </tr>
+  </table>
 </div>
+
+
