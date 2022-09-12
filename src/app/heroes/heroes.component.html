@@ -1,6 +1,6 @@
 <div>
   <ul>
-    <li (click)="showClientes()"><a href="#">Clientes</a></li>
+    <li (click)="showClientes();get()"><a href="#">Clientes</a></li>
     <li (click)="showProdutos()"><a href="#">Produtos</a></li>
     <li (click)="showQuants()"><a href="#">Vendedores</a></li>
   </ul>
@@ -9,7 +9,7 @@
   <div>
     <label>Escolha um Cliente: </label>
     <input type="text" [(ngModel)]="pesquisa">
-    <span>{{vendedorSel[0].vendedor}}</span>
+    <span>{{vendedores.data[0].nome}}</span>
   </div>
   <table>
     <tr>
@@ -44,9 +44,9 @@
       <th>Vendedor</th>
       <th>Quantidade de Vendas</th>
     </tr>
-    <tr *ngFor="let vendedor of vendedores">
-      <td>{{vendedor.vendedor}}</td>
-      <td>{{vendedor.vendas}}</td>
+    <tr *ngFor="let vendedor of vendedores.data">
+      <td>{{vendedor.nome}}</td>
+      <td>{{vendedor.idade}}</td>
     </tr>
   </table>
 </div>

@@ -5,6 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
+@Input() get = function(){};
 showClientes(){
   this.showingClientes = true
   this.showingProdutos = false
@@ -1089,23 +1090,9 @@ produtos=[
   {produto:'W10709306 PLACA POTENCIA/INTERFACE', preco:350, quant:2},
   {produto:'W11345881 CRB36/CRB39/BRB398', preco:230, quant:5}
 ]
-vendedores = [
-{vendedor: 'Samira', vendas: 21},
-{vendedor: 'Alex', vendas: 91},
-{vendedor: 'Tadeu', vendas: 92},
-{vendedor: 'Carlos', vendas: 14},
-{vendedor: 'Vilma', vendas: 27},
-{vendedor: 'Josefa', vendas: 70},
-{vendedor: 'Maria', vendas: 84},
-{vendedor: 'Heitor', vendas: 46},
-{vendedor: 'Bianca', vendas: 95},
-{vendedor: 'Rafael', vendas: 51},
-{vendedor: 'Gilmar', vendas: 36},
-];
+@Input() vendedores = {data:[{nome:"Empty",idade:"Empty"}]};
 pesquisa: any = "Maria";
-vendedorSel = this.vendedores.filter( (vendedor) =>{
-  return vendedor.vendedor == this.pesquisa;
-})
+vendedorSel = 'VENDEDORSEL';
   constructor() { }
   ngOnInit(): void {
   }
