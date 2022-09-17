@@ -1,7 +1,7 @@
-<header onload="get()" class="conteudo">+Saber
+<header class="conteudo" (click)="get()">+Saber
   <input type="text" *ngIf="showTopSearch">
   <a href="#"><i class="bi bi-search"></i></a>
 </header>
-<app-heroes [vendedores]="dadoExterno" [get()]="get()"></app-heroes>
+<app-heroes [vendedores]="dadoExterno" [get]="get"></app-heroes>
 <app-sobre></app-sobre>
 <footer>Mais Saber</footer>

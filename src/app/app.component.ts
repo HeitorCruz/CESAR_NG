@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   http = new XMLHttpRequest();
-  dadoExterno= {data:[{nome:"Empty",idade:"Empty"}]};
+  dadoExterno= {data:[{summary:"empty"}]};
   title = 'Tour of Heroes';
   cidade = "Barreiras"
   main = "Main"
@@ -17,10 +17,10 @@ export class AppComponent {
     this.showTopSearch=!this.showTopSearch;
   }
   get(){
-    this.http.open("get","http://localhost:4201");
+    this.http.open("get","https://dotnetapiproject.azurewebsites.net/WeatherForecast");
     this.http.send();
     this.http.responseType = "json";
-    setTimeout (()=>(this.dadoExterno = this.http.response), 3000);
+    setTimeout (()=>(this.dadoExterno.data = this.http.response), 3000);
     console.log();
   }
 }

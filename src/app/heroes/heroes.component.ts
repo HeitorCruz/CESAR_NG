@@ -5,7 +5,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-@Input() get = function(){};
+@Input() get:any = ()=>{};
 showClientes(){
   this.showingClientes = true
   this.showingProdutos = false
@@ -1090,7 +1090,7 @@ produtos=[
   {produto:'W10709306 PLACA POTENCIA/INTERFACE', preco:350, quant:2},
   {produto:'W11345881 CRB36/CRB39/BRB398', preco:230, quant:5}
 ]
-@Input() vendedores = {data:[{nome:"Empty",idade:"Empty"}]};
+@Input() vendedores = {data:[{summary:"empty"}]};
 pesquisa: any = "Maria";
 vendedorSel = 'VENDEDORSEL';
   constructor() { }

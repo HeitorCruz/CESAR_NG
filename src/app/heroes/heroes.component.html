@@ -9,7 +9,7 @@
   <div>
     <label>Escolha um Cliente: </label>
     <input type="text" [(ngModel)]="pesquisa">
-    <span>{{vendedores.data[0].nome}}</span>
+    <span>{{vendedores.data}}</span>
   </div>
   <table>
     <tr>
@@ -45,8 +45,8 @@
       <th>Quantidade de Vendas</th>
     </tr>
     <tr *ngFor="let vendedor of vendedores.data">
-      <td>{{vendedor.nome}}</td>
-      <td>{{vendedor.idade}}</td>
+      <td>{{vendedor.summary}}</td>
+      <td>{{vendedor.summary}}</td>
     </tr>
   </table>
 </div>
