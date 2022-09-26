@@ -33,7 +33,7 @@ showingQuants = false;
 http = new XMLHttpRequest();
 data = {nome:"",idade:""}
 POST(){
-  this.http.open("POST","https://localhost:7037/WeatherForecast");
+  this.http.open("POST","https://dotnetapiproject.azurewebsites.net//WeatherForecast");
   this.http.responseType = "text";
   this.http.setRequestHeader('Content-Type', 'application/json');
   this.http.send(JSON.stringify(this.data));
