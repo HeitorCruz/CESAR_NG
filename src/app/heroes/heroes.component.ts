@@ -37,6 +37,8 @@ POST(){
   this.http.responseType = "text";
   this.http.setRequestHeader('Content-Type', 'application/json');
   this.http.send(JSON.stringify(this.data));
+  this.data.idade = "";
+  this.data.nome = "";
   console.log(JSON.stringify(this.data));
 }
 clientes=[

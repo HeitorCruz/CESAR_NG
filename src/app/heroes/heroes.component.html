@@ -40,7 +40,7 @@
 </div>
 <div id="quants" *ngIf="showingQuants">
   <div>
-    Adicionar Vendedor:<br> <input [(ngModel)]="data.nome" type="text" placeholder="Vendas"> <input [(ngModel)]="data.idade" type="text" placeholder="Idade"><br><button (click)="POST()">ADICIONAR</button>
+    Adicionar Vendedor:<br> <input [(ngModel)]="data.nome" type="text" placeholder="Vendedor"> <input [(ngModel)]="data.idade" type="text" placeholder="Vendas"><br><input (click)="POST()" type="submit" value="ADICIONAR">
   </div>
   <table id="vendedortable">
     <tr>
