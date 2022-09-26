@@ -39,6 +39,9 @@
   </table>
 </div>
 <div id="quants" *ngIf="showingQuants">
+  <div>
+    Adicionar Vendedor: <input [(ngModel)]="data.nome" type="text" placeholder="Nome"> <input [(ngModel)]="data.idade" type="text" placeholder="Idade"><button (click)="POST()">ADICIONAR</button>
+  </div>
   <table>
     <tr>
       <th>Vendedor</th>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Console } from 'console';
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
@@ -29,7 +30,15 @@ showSearch(){
 showingClientes = true;
 showingProdutos = false;
 showingQuants = false;
-
+http = new XMLHttpRequest();
+data = {nome:"",idade:""}
+POST(){
+  this.http.open("POST","https://localhost:7037/WeatherForecast");
+  this.http.responseType = "text";
+  this.http.setRequestHeader('Content-Type', 'application/json');
+  this.http.send(JSON.stringify(this.data));
+  console.log(JSON.stringify(this.data));
+}
 clientes=[
 'Blade',
 'Capitão América',
