@@ -37,7 +37,7 @@ get(){
   this.http.open("get","https://dotnetapiproject.azurewebsites.net/WeatherForecast");
   this.http.send();
   this.http.responseType = "text";
-  setTimeout (()=>(this.dadoExterno.data = this.http.response), 3000);
+  setTimeout (()=>(this.dadoExterno = this.http.response), 3000);
   console.log();
 }
 POST(){
