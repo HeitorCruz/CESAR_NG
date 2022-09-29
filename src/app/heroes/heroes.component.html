@@ -47,9 +47,9 @@
       <th>Vendedor</th>
       <th>Quantidade de Vendas</th>
     </tr>
-    <tr *ngFor="let vendedor of vendedores.data">
-      <td>{{vendedor.summary}}</td>
-      <td>{{vendedor.summary}}</td>
+    <tr *ngFor="let vendedor of dadoExterno['data']">
+      <td>{{vendedor['nome']}}</td>
+      <td>{{vendedor['idade']}}</td>
     </tr>
   </table>
 </div>

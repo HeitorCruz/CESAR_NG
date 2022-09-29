@@ -6,7 +6,6 @@ import { Console } from 'console';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-@Input() get:any = ()=>{};
 showClientes(){
   this.showingClientes = true
   this.showingProdutos = false
@@ -18,6 +17,7 @@ showProdutos(){
   this.showingQuants = false
 }
 showQuants(){
+  this.get();
   this.showingClientes = false
   this.showingProdutos = false
   this.showingQuants = true
@@ -30,8 +30,16 @@ showSearch(){
 showingClientes = true;
 showingProdutos = false;
 showingQuants = false;
+dadoExterno = {data:[{"nome":"","idade":""}]}
 http = new XMLHttpRequest();
-data = {nome:"",idade:""}
+data = {nome:"",idade:""};
+get(){
+  this.http.open("get","https://dotnetapiproject.azurewebsites.net/WeatherForecast");
+  this.http.send();
+  this.http.responseType = "text";
+  setTimeout (()=>(this.dadoExterno.data = this.http.response), 3000);
+  console.log();
+}
 POST(){
   this.http.open("POST","https://dotnetapiproject.azurewebsites.net//WeatherForecast");
   this.http.responseType = "text";
