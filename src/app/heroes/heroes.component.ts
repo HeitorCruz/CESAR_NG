@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { AppComponent } from '../app.component';
+import { NgModel } from '@angular/forms';
 import { Console } from 'console';
 @Component({
   selector: 'app-heroes',
@@ -17,37 +20,56 @@ showProdutos(){
   this.showingQuants = false
 }
 showQuants(){
-  this.get();
   this.showingClientes = false
   this.showingProdutos = false
   this.showingQuants = true
+  this.get();
 }
 showSearch(){
   this.showingClientes = false
   this.showingProdutos = false
   this.showingQuants = false
 }
+edit(){
+  this.showEditar = !this.showEditar;
+}
 showingClientes = true;
 showingProdutos = false;
 showingQuants = false;
-dadoExterno = {data:[{"nome":"","idade":""}]}
-http = new XMLHttpRequest();
-data = {nome:"",idade:""};
+showEditar = false;
+NewVendor = {nome:"",idade:"",str:""};
+VendEdit = {nome:" ",idade:"",str:" "};
+stringInput? = "";
+vendedores = {data:[{"nome":"Empty","idade":"Empty"}]};
 get(){
-  this.http.open("get","https://dotnetapiproject.azurewebsites.net/WeatherForecast");
-  this.http.send();
-  this.http.responseType = "json";
-  setTimeout (()=>(this.dadoExterno = this.http.response), 3000);
-  console.log();
+  var res = new XMLHttpRequest()
+  res.open("GET","http://localhost:5037/WeatherForecast")
+  res.send();
+  res.responseType = "json"
+  setTimeout(()=>{this.vendedores = res.response},3000)
 }
-POST(){
-  this.http.open("POST","https://dotnetapiproject.azurewebsites.net//WeatherForecast");
-  this.http.responseType = "text";
-  this.http.setRequestHeader('Content-Type', 'application/json');
-  this.http.send(JSON.stringify(this.data));
-  this.data.idade = "";
-  this.data.nome = "";
-  console.log(JSON.stringify(this.data));
+post(){
+  var res = new XMLHttpRequest()
+  res.open("POST","http://localhost:5037/WeatherForecast")
+  res.setRequestHeader("Content-Type","application/json");
+  res.send(JSON.stringify(this.NewVendor));
+}
+delete(nome: string){
+  var res = new XMLHttpRequest()
+  res.open("DELETE","http://localhost:5037/WeatherForecast/"+nome)
+  // res.setRequestHeader("Content-Type","");
+  // res.setRequestHeader("Accept","*/*");
+  console.log(typeof(nome));
+  res.send();
+}
+update(nome: string){
+  var res = new XMLHttpRequest()
+  res.open("POST","http://localhost:5037/WeatherForecast/update")
+  res.setRequestHeader("Content-Type","application/json");
+  this.VendEdit.str = nome;
+  this.VendEdit.nome = document.getElementById("textoedit")?.getAttribute("value")?.toString();
+  res.send(JSON.stringify(this.VendEdit));
+  console.log(JSON.stringify(this.VendEdit))
 }
 clientes=[
 'Blade',
@@ -1109,9 +1131,8 @@ produtos=[
   {produto:'W10709306 PLACA POTENCIA/INTERFACE', preco:350, quant:2},
   {produto:'W11345881 CRB36/CRB39/BRB398', preco:230, quant:5}
 ]
-@Input() vendedores = {data:[{summary:"empty"}]};
 pesquisa: any = "Maria";
-vendedorSel = 'VENDEDORSEL';
+vendedorSel = ""
   constructor() { }
   ngOnInit(): void {
   }

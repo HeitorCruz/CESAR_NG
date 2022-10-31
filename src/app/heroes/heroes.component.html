@@ -6,11 +6,6 @@
   </ul>
 </div>
 <div id="clientes" *ngIf="showingClientes">
-  <div>
-    <label>Escolha um Cliente: </label>
-    <input type="text" [(ngModel)]="pesquisa">
-    <span>{{vendedores.data}}</span>
-  </div>
   <table>
     <tr>
       <th>Cliente</th>
@@ -39,17 +34,23 @@
   </table>
 </div>
 <div id="quants" *ngIf="showingQuants">
-  <div>
-    Adicionar Vendedor:<br> <input [(ngModel)]="data.nome" type="text" placeholder="Vendedor"> <input [(ngModel)]="data.idade" type="text" placeholder="Vendas"><br><input (click)="POST()" type="submit" value="ADICIONAR">
+  <div>Adicionar Vendedor:
+    <input type="text" placeholder="Nome" [(ngModel)]="NewVendor.nome">
+    <input type="text"placeholder="Quantidade de Vendas" [(ngModel)]="NewVendor.idade">
+    <button (click)="post()">ADICIONAR</button>
   </div>
-  <table id="vendedortable">
+  <table>
     <tr>
       <th>Vendedor</th>
       <th>Quantidade de Vendas</th>
     </tr>
-    <tr *ngFor="let vendedor of dadoExterno['data']">
+    <tr *ngFor="let vendedor of vendedores['data']">
       <td>{{vendedor['nome']}}</td>
       <td>{{vendedor['idade']}}</td>
+      <td style="border: none;"><a href="#"><i class="bi bi-x-square-fill"  (click)="delete(vendedor.nome)"></i></a></td>
+      <td style="border: none;"><a href="#"><i class="bi bi-pencil" (click)="edit()"></i></a></td>
+      <input id="textoedit" type="text" *ngIf="this.showEditar" placeholder="Nome" size="30"><input type="text" *ngIf="this.showEditar" placeholder="Vendas" size="2" [(ngModel)]="VendEdit.idade">
+      <button (click)="update(vendedor.nome)" *ngIf="this.showEditar">Editar</button>
     </tr>
   </table>
 </div>
